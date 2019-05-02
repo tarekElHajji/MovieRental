@@ -4,31 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace MovieRental.Controllers
 {
     public class CustomersController : Controller
     {
-        
-        private IEnumerable<Customer> GetCustomers()
-        {
-            return new List<Customer>
-            {
-                new Customer{ Id=1, Name = "Tarek"},
-                new Customer{ Id=2, Name = "Eya"}
-            };
-        }
+        private ApplicationDbContext _context = new ApplicationDbContext();
 
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = GetCustomers();
+            var customers = _context.Customers.Include(m => m.MembershipType).ToList();
             return View(customers);
         }
 
         public ActionResult Details(int? id)
         {
-            var customer = GetCustomers().SingleOrDefault(m => m.Id == id);
+            var customer = _context.Customers.Include(m => m.MembershipType).SingleOrDefault(m => m.Id == id);
 
             if (customer == null)
                 return HttpNotFound();

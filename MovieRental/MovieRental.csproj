@@ -182,9 +182,54 @@
     <Compile Include="Migrations\201904241435305_PopulateMembershipType.Designer.cs">
       <DependentUpon>201904241435305_PopulateMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905021034160_addDataAnnotationToMovie.cs" />
+    <Compile Include="Migrations\201905021034160_addDataAnnotationToMovie.Designer.cs">
+      <DependentUpon>201905021034160_addDataAnnotationToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021036087_addDataAnnotationToCustomer.cs" />
+    <Compile Include="Migrations\201905021036087_addDataAnnotationToCustomer.Designer.cs">
+      <DependentUpon>201905021036087_addDataAnnotationToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021037231_addDataAnnotationToCustomerStringLenght.cs" />
+    <Compile Include="Migrations\201905021037231_addDataAnnotationToCustomerStringLenght.Designer.cs">
+      <DependentUpon>201905021037231_addDataAnnotationToCustomerStringLenght.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021258191_ModifyMembershipType.cs" />
+    <Compile Include="Migrations\201905021258191_ModifyMembershipType.Designer.cs">
+      <DependentUpon>201905021258191_ModifyMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021305189_SetNameOfMembershipTypes.cs" />
+    <Compile Include="Migrations\201905021305189_SetNameOfMembershipTypes.Designer.cs">
+      <DependentUpon>201905021305189_SetNameOfMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021315004_AddBirthdayToCustomer.cs" />
+    <Compile Include="Migrations\201905021315004_AddBirthdayToCustomer.Designer.cs">
+      <DependentUpon>201905021315004_AddBirthdayToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021405386_addFieldsToMovie.cs" />
+    <Compile Include="Migrations\201905021405386_addFieldsToMovie.Designer.cs">
+      <DependentUpon>201905021405386_addFieldsToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021420309_addGenre.cs" />
+    <Compile Include="Migrations\201905021420309_addGenre.Designer.cs">
+      <DependentUpon>201905021420309_addGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021425311_PopulateGenre.cs" />
+    <Compile Include="Migrations\201905021425311_PopulateGenre.Designer.cs">
+      <DependentUpon>201905021425311_PopulateGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021443538_modifyMovie.cs" />
+    <Compile Include="Migrations\201905021443538_modifyMovie.Designer.cs">
+      <DependentUpon>201905021443538_modifyMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021445298_modifyMovieAddForeignKey.cs" />
+    <Compile Include="Migrations\201905021445298_modifyMovieAddForeignKey.Designer.cs">
+      <DependentUpon>201905021445298_modifyMovieAddForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -319,6 +364,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904241435305_PopulateMembershipType.resx">
       <DependentUpon>201904241435305_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021034160_addDataAnnotationToMovie.resx">
+      <DependentUpon>201905021034160_addDataAnnotationToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021036087_addDataAnnotationToCustomer.resx">
+      <DependentUpon>201905021036087_addDataAnnotationToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021037231_addDataAnnotationToCustomerStringLenght.resx">
+      <DependentUpon>201905021037231_addDataAnnotationToCustomerStringLenght.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021258191_ModifyMembershipType.resx">
+      <DependentUpon>201905021258191_ModifyMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021305189_SetNameOfMembershipTypes.resx">
+      <DependentUpon>201905021305189_SetNameOfMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021315004_AddBirthdayToCustomer.resx">
+      <DependentUpon>201905021315004_AddBirthdayToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021405386_addFieldsToMovie.resx">
+      <DependentUpon>201905021405386_addFieldsToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021420309_addGenre.resx">
+      <DependentUpon>201905021420309_addGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021425311_PopulateGenre.resx">
+      <DependentUpon>201905021425311_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021443538_modifyMovie.resx">
+      <DependentUpon>201905021443538_modifyMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021445298_modifyMovieAddForeignKey.resx">
+      <DependentUpon>201905021445298_modifyMovieAddForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
