@@ -1,4 +1,5 @@
 ﻿using MovieRental.Models;
+using MovieRental.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,18 @@ namespace MovieRental.Controllers
                 return HttpNotFound();
 
             return View(customer);
+        }
+
+        public ActionResult Create()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+
+            var newCustomer = new NewCustomer()
+            {
+                MembershipTypes = membershipTypes
+            };
+
+            return View(newCustomer);
         }
     }
 }
