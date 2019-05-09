@@ -14,6 +14,7 @@ namespace MovieRental.Models
         [StringLength(25)]
         public string Name { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Birthday { get; set; }
 
         [Display(Name = "Is subscribed to news letterr")]

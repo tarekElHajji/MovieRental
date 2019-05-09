@@ -34,12 +34,53 @@ namespace MovieRental.Controllers
         {
             var membershipTypes = _context.MembershipTypes.ToList();
 
-            var newCustomer = new NewCustomer()
+            var customerFormViewModel = new CustomerFormViewModel()
             {
                 MembershipTypes = membershipTypes
             };
 
-            return View(newCustomer);
+            return View(customerFormViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+         {
+            _context.Customers.Add(customer);
+            _context.SaveChanges();
+
+            return RedirectToAction("index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return HttpNotFound();
+
+            var customerFormViewModel = new CustomerFormViewModel()
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View(customerFormViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Customer customer)
+        {
+            var updatedCustomer = _context.Customers.Single(c => c.Id == customer.Id);
+
+            updatedCustomer.Name = customer.Name;
+            updatedCustomer.Birthday = customer.Birthday;
+            updatedCustomer.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+            updatedCustomer.MembershipTypeId = customer.MembershipTypeId;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("index");
         }
     }
 }
