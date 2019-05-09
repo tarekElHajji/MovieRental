@@ -17,7 +17,7 @@ namespace MovieRental.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Birthday { get; set; }
 
-        [Display(Name = "Is subscribed to news letterr")]
+        [Display(Name = "Is subscribed to news letter")]
         public bool IsSubscribedToNewsletter { get; set; }
 
         public MembershipType MembershipType { get; set; }

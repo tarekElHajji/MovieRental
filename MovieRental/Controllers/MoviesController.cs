@@ -40,5 +40,72 @@ namespace MovieRental.Controllers
 
             return View(movie);
         }
+
+        public ActionResult Create()
+        {
+            var genres = _context.Genres.ToList();
+
+            var movieFormViewModel = new MovieFormViewModel()
+            {
+                Genres = genres
+            };
+
+            return View(movieFormViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Movie movie)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Movies.Add(movie);
+                _context.SaveChanges();
+
+                return RedirectToAction("index");
+            }
+
+            var genres = _context.Genres.ToList();
+
+            var movieFormViewModel = new MovieFormViewModel()
+            {
+                Genres = genres
+            };
+
+            return View(movieFormViewModel);
+
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            var movieFormViewModel = new MovieFormViewModel()
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+
+            return View(movieFormViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Movie movie)
+        {
+            var updatedMovie = _context.Movies.Single(c => c.Id == movie.Id);
+
+            updatedMovie.Name = movie.Name;
+            updatedMovie.ReleaseDate = movie.ReleaseDate;
+            updatedMovie.DateAdded = movie.DateAdded;
+            updatedMovie.Stock = movie.Stock;
+            updatedMovie.GenreId = movie.GenreId;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("index");
+        }
     }
 }
