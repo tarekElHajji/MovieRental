@@ -14,6 +14,7 @@ namespace MovieRental.Models
         [StringLength(25)]
         public string Name { get; set; }
 
+        [Min18YearsIfAMember]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? Birthday { get; set; }
 
@@ -22,6 +23,7 @@ namespace MovieRental.Models
 
         public MembershipType MembershipType { get; set; }
 
+        [Display(Name="Membership type")]
         public byte MembershipTypeId { get; set; }
     }
 }

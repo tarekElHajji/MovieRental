@@ -44,11 +44,27 @@ namespace MovieRental.Controllers
 
         [HttpPost]
         public ActionResult Create(Customer customer)
-         {
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
+        {
+            if (!ModelState.IsValid)
+            {
+                var membershipTypes = _context.MembershipTypes.ToList();
 
-            return RedirectToAction("index");
+                var customerFormViewModel = new CustomerFormViewModel()
+                {
+                    MembershipTypes = membershipTypes,
+                    Customer = customer
+                };
+
+                return View(customerFormViewModel);
+            }
+            else
+            {
+                _context.Customers.Add(customer);
+                _context.SaveChanges();
+
+                return RedirectToAction("index");
+            }
+
         }
 
         [HttpGet]
@@ -71,16 +87,32 @@ namespace MovieRental.Controllers
         [HttpPost]
         public ActionResult Edit(Customer customer)
         {
-            var updatedCustomer = _context.Customers.Single(c => c.Id == customer.Id);
+            if (!ModelState.IsValid)
+            {
+                var membershipTypes = _context.MembershipTypes.ToList();
 
-            updatedCustomer.Name = customer.Name;
-            updatedCustomer.Birthday = customer.Birthday;
-            updatedCustomer.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
-            updatedCustomer.MembershipTypeId = customer.MembershipTypeId;
+                var customerFormViewModel = new CustomerFormViewModel()
+                {
+                    MembershipTypes = membershipTypes,
+                    Customer = customer
+                };
 
-            _context.SaveChanges();
+                return View(customerFormViewModel);
+            }
+            else
+            {
 
-            return RedirectToAction("index");
+                var updatedCustomer = _context.Customers.Single(c => c.Id == customer.Id);
+
+                updatedCustomer.Name = customer.Name;
+                updatedCustomer.Birthday = customer.Birthday;
+                updatedCustomer.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                updatedCustomer.MembershipTypeId = customer.MembershipTypeId;
+
+                _context.SaveChanges();
+
+                return RedirectToAction("index");
+            }
         }
     }
 }

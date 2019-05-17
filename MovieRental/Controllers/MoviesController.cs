@@ -68,7 +68,8 @@ namespace MovieRental.Controllers
 
             var movieFormViewModel = new MovieFormViewModel()
             {
-                Genres = genres
+                Genres = genres,
+                Movie = movie
             };
 
             return View(movieFormViewModel);
@@ -95,6 +96,18 @@ namespace MovieRental.Controllers
         [HttpPost]
         public ActionResult Edit(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var genres = _context.Genres.ToList();
+
+                var movieFormViewModel = new MovieFormViewModel()
+                {
+                    Genres = genres,
+                    Movie = movie
+                };
+
+                return View(movieFormViewModel);
+            }
             var updatedMovie = _context.Movies.Single(c => c.Id == movie.Id);
 
             updatedMovie.Name = movie.Name;
