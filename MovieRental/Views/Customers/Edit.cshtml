@@ -60,15 +60,15 @@
 </div>
 
 @*@section scripts {
-    @Scripts.Render("~/bundles/jqueryui")
-    @Styles.Render("~/Content/cssjqryUi")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/cssjqryUi")
 
-    <script type="text/javascript">
-        $(function () { // will trigger when the document is ready
-            $('.datepicker').datepicker(); //Initialise any date pickers
-        });
-    </script>
-}*@
+        <script type="text/javascript">
+            $(function () { // will trigger when the document is ready
+                $('.datepicker').datepicker(); //Initialise any date pickers
+            });
+        </script>
+    }*@
 
 
 
@@ -76,25 +76,31 @@
 
 @*@section Scripts {
 
-    @Scripts.Render("~/bundles/jqueryui")
-    @Styles.Render("~/Content/cssjqryUi")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/cssjqryUi")
 
-    <script type="text/javascript">
-            $(document).ready(function () {
-                $('#datepicker').datepicker({
-                    dateFormat: "dd/M/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "-60:+0"
+        <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#datepicker').datepicker({
+                        dateFormat: "dd/M/yy",
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "-60:+0"
+                    });
+
                 });
+            </script>
 
+        <script>
+            $('.datepicker').datepicker({
+                uiLibrary: 'bootstrap4'
             });
         </script>
 
-    <script>
-        $('.datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
-        });
-    </script>
+    }*@
 
-}*@ 
+@* Enable client validation *@
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}
